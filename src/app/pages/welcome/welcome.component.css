@@ -1,0 +1,156 @@
+.screen
+{
+    background-image: url('../../../assets/Welcome/Fondo_welcome.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+}
+
+.screen .info-container
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+}
+
+.screen .info-container .carrousel-container
+{
+    width: 60%;
+    height: 380px;
+    background-color: rgba(53, 52, 52, 0.7);
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.screen .info-container .carrousel-container .carrousel
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    
+}
+
+.screen .info-container .carrousel-container .carrousel img
+{
+    width: 150px;
+    height: 220px;
+    transition: transform 0.3s ease;
+}
+
+.screen .info-container .carrousel-container .carrousel img:hover
+{
+    transform: scale(1.1);
+}
+
+.screen .info-container .login-menu
+{
+    width: 30%;
+    height: 400px;
+    background-image: url('../../../assets/Welcome/pergamino.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 60vh;
+    border-radius: 20px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.screen .info-container .login-menu .container
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.screen .info-container .login-menu .legality
+{
+    width: 60%;
+    text-align: center;
+    font-family: 'Book Antiqua';
+}
+
+.screen .info-container .login-menu hr
+{
+    border-color: #a7a5a5;
+    width: 80%;
+}
+
+.screen .info-container .login-menu .button-box
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 40%;
+}
+
+.screen .info-container .login-menu .button-box button {
+    background-color: #dfd0b2; 
+    border: 1px solid #b99e77;
+    border-radius: 5px; 
+    width: 55%;
+    padding: 8px 18px; 
+    font-size: 17px;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000000;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.screen .info-container .login-menu .button-box button:hover {
+    background-color: #c9b291; 
+}
+
+
+.screen .logo-container
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen .logo-container img
+{
+    width: 150px;
+}
+
+.screen .copyright
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen .copyright p
+{
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Book Antiqua';
+}
