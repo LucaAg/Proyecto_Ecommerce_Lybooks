@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Libre+Baskerville&display=swap');
+*
+{
+    font-family: 'Lora', serif;
+}
+.screen
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+    min-height: 100vh;
+    background-color: rgb(245, 234, 219);
+}
+
+.screen .logo-container
+{
+    width: 100%;
+    height: 6rem;
+    background-color: #1F2B2D;
+    
+}    
+
+.screen .logo-container .brand-container
+{
+    
+    width: 26%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    flex-direction: row;
+    
+}
+
+.screen .logo-container p
+{
+    font-size: 2.5rem;
+    color: #D6AA67; 
+    transform: translateX(0.5rem);
+}
+
+.screen .logo-container img
+{
+    width: 5rem;
+    padding-right: 0.625rem;
+}
+
+.screen .info-container
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+}
+
+.screen .info-container .info-gallery
+{
+    width: 55%;
+    height: 29.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.screen .info-container .info-gallery h1
+{
+    font-size: 3rem;
+    color:#665131;
+}
+
+.screen .info-container .info-gallery .gallery-container
+{
+    width: 100%;
+    height: 27rem;
+    padding: 0.625rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.screen .info-container .info-gallery .gallery-container .gallery
+{
+    width: 100%;
+}
+
+.screen .info-container .info-gallery .gallery-container .gallery section
+{
+    display: flex;
+    width: 100%;
+    height: 12rem;
+    padding: 0.188rem;
+}
+
+.screen .info-container .info-gallery .gallery-container .gallery section img
+{
+    width: 0rem;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
+}
+.screen .info-container .info-gallery .gallery-container .gallery section img:hover
+{
+    cursor: crosshair;
+    width: 3rem;   
+    opacity: 1;
+    filter: contrast(120%);
+}
+
+.screen .info-container .login-menu
+{
+    width: 30%;
+    height: 30rem;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+
+.screen .info-container .login-menu .about-us
+{
+    width: 75%;
+}
+
+.screen .info-container .login-menu .about-us span
+{
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.screen .info-container .login-menu .about-us p
+{
+    font-weight:100;
+    font-size: 0.9rem;
+}
+
+.screen .info-container .login-menu .login-container
+{
+    width: 75%;
+    height: 24rem;
+    background-color: #D6AA67;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 1.5rem;
+}
+
+.screen .info-container .login-menu .login-container .legality
+{
+    width: 70%;
+    text-align: center;
+    font-family: 'Book Antiqua';
+    font-size: 0.95rem;
+}
+
+.screen .info-container .login-menu .login-container hr
+{
+    border-color: #a7a5a5;
+    width: 80%;
+}
+
+.screen .info-container .login-menu .login-container .button-box
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 40%;
+}
+
+.screen .info-container .login-menu .login-container .button-box button {
+    background-color: #dfd0b2; 
+    border: 1px solid #b99e77;
+    border-radius: 0.313rem; 
+    width: 80%;
+    padding: 0.5rem 1.125rem; 
+    font-size: 0.9rem;
+    color: #000000;
+    box-shadow: inset 0 0 0.625rem rgba(0, 0, 0, 0.2); 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    display: flex;
+    align-items: center;
+}
+
+.screen .info-container .login-menu .login-container .button-box button:hover {
+    background-color: #c9b291; 
+}
+
+.screen .info-container .login-menu .login-container .button-box button img
+{
+    width: 1.25rem;
+    padding-right: 0.625rem;
+}
+
+.screen .copyright
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen .copyright p
+{
+    color: black;
+    font-weight: bold;
+    font-style: italic;
+   font-size: 1.1rem;
+   margin-bottom: 1.5rem;
+}
