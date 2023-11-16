@@ -11,20 +11,10 @@
             <div class="gallery-container">
                 <div class="gallery">
                     <section>
-                        <img src="../../../assets/Welcome/1984.jpeg" alt="">
-                        <img src="../../../assets/Welcome/big little lies.jpeg" alt="">
-                        <img src="../../../assets/Welcome/black cat.jpg" alt="">
-                        <img src="../../../assets/Welcome/circe.jpeg" alt="">
-                        <img src="../../../assets/Welcome/cuervo negro.png" alt="">
-                        <img src="../../../assets/Welcome/dark matter.jpg" alt="">
+                        <img *ngFor="let image of imagesArray" [src]="image.src" alt="">
                     </section>
                     <section>
-                        <img src="../../../assets/Welcome/Los peligros de fumar en la cama.jpeg" alt="">
-                        <img src="../../../assets/Welcome/magnus chase gods of asgard.jpg" alt="">
-                        <img src="../../../assets/Welcome/odisea.jpg" alt="">
-                        <img src="../../../assets/Welcome/Pachinko.png" alt="">
-                        <img src="../../../assets/Welcome/The catcher in the rye.jpg" alt="">
-                        <img src="../../../assets/Welcome/the green mile.jpg" alt="">
+                        <img *ngFor="let image of imagesArray2" [src]="image.src" alt="">
                     </section>
                 </div>
             </div>
