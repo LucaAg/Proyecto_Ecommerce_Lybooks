@@ -12,9 +12,8 @@ export class WelcomeComponent {
   imagesArray2:any = [];
   randomNumbers:any[]=[];
 
-  constructor(private apiBook:ApiBookService)
+  constructor()
   {
-    console.log(apiBook.fetchData());
     this.fillArrayImage();
   }
 
