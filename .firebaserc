@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "lybooks": {
+      "hosting": {
+        "Ecommerce-Lybooks": [
+          "lybooks"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "lybooks"
+  }
+}
