@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiBookService } from 'src/app/services/api-book.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -12,9 +13,29 @@ export class WelcomeComponent {
   imagesArray2:any = [];
   randomNumbers:any[]=[];
 
-  constructor()
+  constructor(private auth:AuthService)
   {
     this.fillArrayImage();
+  }
+
+  onGoogleLogin()
+  {
+    try{
+      this.auth.loginGoogle();
+    }catch(error)
+    {
+      console.log(error);
+    }
+  }
+
+  onTwitterLogin()
+  {
+    try{
+      this.auth.loginTwitter();
+    }catch(error)
+    {
+      console.log(error);
+    }
   }
 
   fillArrayImage()

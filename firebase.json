@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "Ecommerce-Lybooks",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}
