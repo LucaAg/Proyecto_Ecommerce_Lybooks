@@ -1,0 +1,7 @@
+<div class="screen">
+    <form [formGroup]="formLogin" (ngSubmit)="logIn()">
+        <input formControlName="email" type="text" placeholder="Enter your email">
+        <input formControlName="password" type="password" placeholder="Enter your password">
+        <button type="submit">Log in</button>
+    </form>
+</div>

@@ -1,0 +1,11 @@
+<div class="screen">
+    <form [formGroup]="formUser" (ngSubmit)="signUpUser()">
+        <input formControlName="name" type="text" placeholder="Enter your name(s)">
+        <input formControlName="lastName" type="text" placeholder="Enter your last name">
+        <input formControlName="age" type="text" placeholder="Enter your age">
+        <input formControlName="email" type="text" placeholder="Enter your email">
+        <input formControlName="password" type="password" placeholder="Enter your password">
+        <input formControlName="image" type="file" (change)="loadImage($event)">
+        <button type="submit">Register</button>
+    </form>
+</div>

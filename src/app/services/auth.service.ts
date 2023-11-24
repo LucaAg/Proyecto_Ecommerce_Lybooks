@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import  fireAuth  from 'firebase/compat/app';
 import { TwitterAuthProvider,getAuth, signInWithPopup } from "firebase/auth";
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 @Injectable({  providedIn: 'root'
 })
 export class AuthService {
   usuario:any;
-  constructor(private afAuth:AngularFireAuth) { }
+  constructor(private afAuth:AngularFireAuth,private angularFirestore: AngularFirestore) { }
    //@ts-ignore
   async loginGoogle()
   {
@@ -50,6 +51,72 @@ export class AuthService {
       const credential = TwitterAuthProvider.credentialFromError(error);
       // ...
       console.log(error);
+    });
+  }
+
+  async logInWithEmailAndPassw(email:string,contraseña:string) {
+    return new Promise((resolve, rejected) => {
+      this.afAuth.signInWithEmailAndPassword(email, contraseña).then(async usuario => {
+        resolve(usuario);
+        console.log(usuario);
+      })
+      .catch(error => rejected(error));
+    });
+  } 
+
+  logOut() {
+    this.afAuth.signOut();
+  }
+
+  private createMessage(errorCode: string): string {
+    let message: string = '';
+    switch (errorCode) {
+      case 'auth/internal-error':
+        message = 'Los campos estan vacios';
+        break;
+      case 'auth/operation-not-allowed':
+        message = 'La operación no está permitida.';
+        break;
+      case 'auth/email-already-in-use':
+        message = 'El email ya está registrado.';
+        break;
+      case 'auth/invalid-email':
+        message = 'El email no es valido.';
+        break;
+      case 'auth/weak-password':
+        message = 'La contraseña debe tener al menos 6 caracteres';
+        break;
+      default:
+        message = 'Error al crear el usuario.';
+        break;
+    }
+    return message;
+  } 
+
+  userRegister(user:any)
+  {
+    this.afAuth.createUserWithEmailAndPassword(user.email,user.password)
+    .then((datos)=>{
+      //datos.user?.sendEmailVerification();
+      this.angularFirestore.collection('Users').doc(datos.user?.uid)
+      .set({
+        id: datos.user?.uid,
+        name: user.name,
+        lastName: user.lastName,
+        age: user.age,
+        email: user.email,
+        password: user.password,
+        userImage: user.image,
+        approved: false,
+      }).then(()=>{
+        //this.sweetServi.mensajeExitoso("Registro existoso!","registro");
+        console.log("Un exito!");
+      }).catch((error)=>{
+        console.log(this.createMessage(error.code));
+      })
+    })
+    .catch((error)=>{
+      console.log(this.createMessage(error.code));
     });
   }
 }
