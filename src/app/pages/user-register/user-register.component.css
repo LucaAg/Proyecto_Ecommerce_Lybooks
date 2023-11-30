@@ -1,32 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Libre+Baskerville&display=swap');
+*
+{
+    font-family: 'Lora', serif;
+}
+
 .screen
 {
     width: 100%;
-    height: 100vh;
+    height: 140vh;
     display: flex;
-    justify-content: space-evenly;
+    justify-content:center;
     align-items: center;
     flex-direction: column;
 }
+
 
 .screen form
 {
-    width: 90%;
-    height: 80%;
-    border: 1px solid black;
+    width: 45%;
+    height: 90%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content:space-evenly;
     align-items: center;
     flex-direction: column;
+    border: 0.188rem solid #D6AA67;
+    border-radius: 1.25rem;
+    background-color: rgb(245, 234, 219);
 }
 
-.pantalla form input
+.screen form h1
 {
-    width: 80%;
-    height: 30px;
+    font-size: 3.75rem;
+    font-weight: bold;
+    color: #D6AA67;
 }
 
-.screen form button
+.screen form label
 {
-    width: 150px;
-    height: 30px;
+    width: 50%;
+}
+
+.screen form small
+{
+    width: 50%;
+    font-style: italic;
+    color: red;
+}
+
+.screen form input:not([type="file"]) 
+{
+    width: 50%;
+    height: 1.875rem;
+    background-color: white;
+    border-radius: 1.25rem;
+    text-indent: 0.625rem;
+}
+
+
+
+.screen form .conditions 
+{
+    width: 95%;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.screen form  button
+{
+    width: 30%;
+    height: 4%;
+    border-radius: 1rem;
+    background-color: #1F2B2D;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.screen form  button:hover
+{
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transform: scale(1.05);
+}
+
+.screen form  button:active
+{
+    transform: scale(0.95);
+}
+
+.screen form .file-container
+{
+    position: relative;
+    display: flex;
+    width: 50%;
+}
+
+.screen form .file-container::before
+{
+    background-color: #1F2B2D;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.screen form .file-container input[type="file"] {
+    opacity: 0;
+    width: 12.5rem;
+    height: 2rem;
+    display: inline-block;
+}
+  
+.screen form .file-container::before
+{
+    content: 'Upload image';
+}
+
+.screen .copyright
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.625rem;
+}
+
+.screen form hr{
+    border-color: #a7a5a5;
+    width: 70%;
+}
+
+.screen form .legality
+{
+    width: 50%;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+
+
+@media screen and (max-width: 890px)
+{
+    .screen form
+    {
+        width: 65%;
+    }
+
+    .screen form input:not([type="file"]) 
+    {
+        width: 60%;
+    }
+
+    .screen form label
+    {
+        width: 60%;
+    }
+
+    .screen form small
+    {
+        width: 60%;
+    }
+
+}
+
+@media screen and (max-width: 576px)
+{
+    .screen form
+    {
+        width: 65%;
+    }
+
+    .screen form input:not([type="file"]) 
+    {
+        width: 65%;
+    }
+
+    .screen form label
+    {
+        width: 65%;
+    }
+
+    .screen form small
+    {
+        width: 65%;
+    }
+
+}
+
+@media screen and (max-width: 400px)
+{
+    .screen form
+    {
+        width: 70%;
+    }
+
+    .screen form h1
+    {
+        font-size: 2.5rem;
+    }
+
+    .screen form input:not([type="file"]) 
+    {
+        width: 70%;
+    }
+
+    .screen form label
+    {
+        width: 70%;
+    }
+
+    .screen form small
+    {
+        width: 70%;
+    }
+}
+
+/* SPINNER */
+.spinner-container
+{
+    position: absolute;
+    width: 100%;
+    height: 180vh;
+    background-color: rgba(8, 8, 8, 0.2);
+    backdrop-filter: blur(3px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
 }

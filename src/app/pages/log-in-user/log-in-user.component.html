@@ -1,7 +1,46 @@
 <div class="screen">
     <form [formGroup]="formLogin" (ngSubmit)="logIn()">
+        <h1>Lybooks</h1>
+        <h2>Sign in</h2>
+        <label for="">Email</label>
         <input formControlName="email" type="text" placeholder="Enter your email">
+        <small
+            *ngIf="
+            formLogin.controls['email'].errors?.['required'] &&
+            formLogin.controls['email'].touched">
+            *Email is required
+        </small>
+        <small 
+        *ngIf="( formLogin.controls['email'].dirty || formLogin.controls['email'].touched) &&  
+        formLogin.controls['email'].invalid &&  formLogin.controls['email'].errors?.['pattern']">
+            *Incorrect format. Example, Example@example.com
+        </small>
+        <label for="">Password</label>
         <input formControlName="password" type="password" placeholder="Enter your password">
+        <small
+            class="mensaje-error"
+            *ngIf="
+            formLogin.controls['password'].errors?.['required'] &&
+            formLogin.controls['password'].touched">
+            *Password required
+        </small>      
+        <a href="">Forgot your password?</a>
+        <span>New in Lybooks? Sign up<a href="#"> here</a></span>
+        <hr>
+        <div class="legality">
+            <p>By signing in, you agree to the Lybooks <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+        </div>
         <button type="submit">Log in</button>
     </form>
+    <div class="copyright">
+        <p>&copy; 2023 Lybooks, inc.</p>
+    </div>
+    <div *ngIf="popUp" class="popUp">
+        <img src="../../../assets/Logo-removebg.png" alt="Lybooks logo">
+        <div id="pop-up-text">{{popUpMessage}}</div>
+        <button (click)="closePopUp()" id="boton">Accept</button>
+    </div>
+</div>
+<div class="spinner-container" *ngIf="spinner">
+    <app-spinner id="spinner"></app-spinner>
 </div>

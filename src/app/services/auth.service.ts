@@ -3,13 +3,15 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import  fireAuth  from 'firebase/compat/app';
 import { TwitterAuthProvider,getAuth, signInWithPopup } from "firebase/auth";
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 
 
 @Injectable({  providedIn: 'root'
 })
 export class AuthService {
   usuario:any;
-  constructor(private afAuth:AngularFireAuth,private angularFirestore: AngularFirestore) { }
+  constructor(private afAuth:AngularFireAuth,private angularFirestore: AngularFirestore,
+    private router:Router) { }
    //@ts-ignore
   async loginGoogle()
   {
@@ -57,6 +59,11 @@ export class AuthService {
   async logInWithEmailAndPassw(email:string,contraseña:string) {
     return new Promise((resolve, rejected) => {
       this.afAuth.signInWithEmailAndPassword(email, contraseña).then(async usuario => {
+        if(!usuario.user?.emailVerified)
+        {
+          console.log("Debe verificar el email");
+          this.afAuth.signOut();
+        }
         resolve(usuario);
         console.log(usuario);
       })
@@ -66,28 +73,32 @@ export class AuthService {
 
   logOut() {
     this.afAuth.signOut();
+    this.router.navigateByUrl('welcome');
   }
 
-  private createMessage(errorCode: string): string {
+  createMessage(errorCode: string): string {
     let message: string = '';
     switch (errorCode) {
       case 'auth/internal-error':
-        message = 'Los campos estan vacios';
+        message = 'The fields are empty';
         break;
       case 'auth/operation-not-allowed':
-        message = 'La operación no está permitida.';
+        message = 'The operation is not allowed.';
         break;
       case 'auth/email-already-in-use':
-        message = 'El email ya está registrado.';
+        message = 'The email is already registred.';
         break;
       case 'auth/invalid-email':
-        message = 'El email no es valido.';
+        message = 'Invalid email.';
         break;
+      case 'auth/invalid-login-credentials':
+        message="The email is not registred";
+        break;  
       case 'auth/weak-password':
-        message = 'La contraseña debe tener al menos 6 caracteres';
+        message = 'The password must contain at least 6 characters.';
         break;
       default:
-        message = 'Error al crear el usuario.';
+        message = 'Error creating user.';
         break;
     }
     return message;
@@ -97,7 +108,7 @@ export class AuthService {
   {
     this.afAuth.createUserWithEmailAndPassword(user.email,user.password)
     .then((datos)=>{
-      //datos.user?.sendEmailVerification();
+      datos.user?.sendEmailVerification();
       this.angularFirestore.collection('Users').doc(datos.user?.uid)
       .set({
         id: datos.user?.uid,
@@ -107,7 +118,6 @@ export class AuthService {
         email: user.email,
         password: user.password,
         userImage: user.image,
-        approved: false,
       }).then(()=>{
         //this.sweetServi.mensajeExitoso("Registro existoso!","registro");
         console.log("Un exito!");

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ElementRef, ViewChild, AfterViewInit, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
@@ -14,6 +14,9 @@ export class LogInUserComponent {
   formLogin: FormGroup;
   email:string = "";
   password:string = "";
+  spinner:boolean = false;
+  popUp:boolean = false;
+  popUpMessage:string = '';
 
   constructor(private formBuilder:FormBuilder,
     private auth:AuthService,
@@ -24,33 +27,60 @@ export class LogInUserComponent {
         password: ['', [Validators.required,Validators.pattern(this.patternContraseña)]],
       });
     }
+    
 
     async logIn() {
-      if (this.formLogin.valid) {
+      if (this.formLogin.valid) 
+      {
         this.email = this.formLogin.getRawValue().email;
         this.password = this.formLogin.getRawValue().password;
-        //this.activarSpinner();
         //let verificacion:string = "";
         try {
-          await this.auth.logInWithEmailAndPassw(this.email, this.password).then(async(data:any)=>{
-              // await this.obtenerDatosUsuario().then((user)=>{
-              //   verificacion = this.verificarUsuario(datos,usuario);
-              //     if (verificacion != "verificado") {
-              //       this.auth.cerrarSesion();
-              //       this.sweetServ.mensajeError(verificacion, "Iniciar sesión");
-              //     } else {
-              //       this.auth.setLogueado();
-              //       this.crearLog(usuario);
-              //       this.sweetServ.mensajeExitoso("Inicio de sesión exitoso.", "Iniciar sesión");
-              //       this.router.navigate(['bienvenida']);
-              //     }          
-              // });
-              console.log(data);
+          await this.auth.logInWithEmailAndPassw(this.email, this.password).then(()=>{
+            this.activateSpinner().then(()=>{
+              this.router.navigateByUrl("home");
+              });
             });       
-          } catch (error) {
-          console.log(error);
+          } catch (error:any) {
+           this.customPopUp(this.auth.createMessage(error.code));
         }
       }
+      else
+      {
+        this.activateValidators();
+      }
     }
-  
+
+    customPopUp(message:string)
+    {
+      console.log(message);
+      this.popUpMessage = message;
+      this.popUp = true;
+    }
+
+    activateSpinner(): Promise<void> {
+      return new Promise<void>((resolve) => {
+        this.spinner = true;
+        setTimeout(() => {
+          this.spinner = false;
+          resolve();
+        }, 2500);
+      });
+    }
+
+    activateValidators() {
+      Object.keys(this.formLogin.controls).forEach(field => {
+        const control = this.formLogin.get(field);
+        if(control)
+        {
+          control.markAsTouched({ onlySelf: true });
+        }
+      });
+    }
+    
+    closePopUp()
+    {
+      this.popUp = false;
+      this.popUpMessage = '';
+    }
 }

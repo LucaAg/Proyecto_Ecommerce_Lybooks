@@ -12,6 +12,8 @@ import { environment } from '../environments/environments';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserRegisterComponent } from './pages/user-register/user-register.component';
 import { LogInUserComponent } from './pages/log-in-user/log-in-user.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { LogInUserComponent } from './pages/log-in-user/log-in-user.component';
     NavbarComponent,
     WelcomeComponent,
     UserRegisterComponent,
-    LogInUserComponent
+    LogInUserComponent,
+    SpinnerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
