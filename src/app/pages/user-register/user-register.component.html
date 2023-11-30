@@ -1,11 +1,96 @@
 <div class="screen">
     <form [formGroup]="formUser" (ngSubmit)="signUpUser()">
+        <h1>Lybooks</h1>
+        <label for="">Name</label>
         <input formControlName="name" type="text" placeholder="Enter your name(s)">
+        <small
+            *ngIf="
+            formUser.controls['name'].errors?.['required'] &&
+            formUser.controls['name'].touched">
+            *Name is required
+        </small>
+        <label for="">Last name</label>
         <input formControlName="lastName" type="text" placeholder="Enter your last name">
+        <small
+            *ngIf="
+            formUser.controls['lastName'].errors?.['required'] &&
+            formUser.controls['lastName'].touched">
+            *Last name is required
+        </small>
+        <label for="">Age</label>
         <input formControlName="age" type="text" placeholder="Enter your age">
+        <small
+            *ngIf="
+            formUser.controls['age'].errors?.['required'] &&
+            formUser.controls['age'].touched">
+            *Age is required
+        </small>
+        <small
+            class="mensaje-error"
+            *ngIf="formUser.controls['age'].errors?.['min'] &&
+                    formUser.controls['age'].touched">
+            *You must be over 17 years old.     
+        </small>  
+        <label for="">Email</label> 
         <input formControlName="email" type="text" placeholder="Enter your email">
+        <small
+    
+            *ngIf="
+            formUser.controls['email'].errors?.['required'] &&
+            formUser.controls['email'].touched">
+            *Email is required
+        </small>
+        <small 
+        *ngIf="( formUser.controls['email'].dirty || formUser.controls['email'].touched) &&  
+        formUser.controls['email'].invalid &&  formUser.controls['email'].errors?.['pattern']">
+            *Incorrect format. Example, Example@example.com
+        </small>
+        <label for="">Password</label> 
         <input formControlName="password" type="password" placeholder="Enter your password">
-        <input formControlName="image" type="file" (change)="loadImage($event)">
+        <small
+            class="mensaje-error"
+            *ngIf="
+            formUser.controls['password'].errors?.['required'] &&
+            formUser.controls['password'].touched">
+            *Password required
+        </small>      
+        <small
+            *ngIf="
+            formUser.controls['password'].errors?.['pattern'] &&
+            formUser.controls['password'].touched">
+            *Password must be at least 6 characters.
+        </small> 
+        <label for="">Confirm your password</label> 
+        <input formControlName="rePassword" type="password" placeholder="Repeat your password">
+        <small
+            *ngIf="
+            formUser.controls['rePassword'].errors?.['required'] &&
+            formUser.controls['rePassword'].touched">
+            *You must confirm your password.
+        </small>   
+        <small 
+            *ngIf=" formUser.controls['rePassword'].touched && this.formUser.getRawValue().rePassword != this.formUser.getRawValue().password">
+            *Passwords are differets.
+        </small>   
+        <label for="">Profile image (JPG/PNG)</label>
+        <div class="file-container" id="src-file">
+            <input formControlName="image" name="src-file" type="file" accept=".jpg, .jpeg, .png" (change)="loadImage($event)">
+        </div> 
+        <small
+            *ngIf="formUser.controls['image'].errors?.['required'] &&
+            formUser.controls['image'].touched ">
+            *Profile image is required
+        </small>
+        <hr>
+        <div class="legality">
+            <p>By creating an account, you agree to the Lybooks <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+        </div>
         <button type="submit">Register</button>
     </form>
+    <div class="copyright">
+        <p>&copy; 2023 Lybooks, inc.</p>
+    </div>
+</div>
+<div class="spinner-container" *ngIf="spinner">
+    <app-spinner id="spinner"></app-spinner>
 </div>

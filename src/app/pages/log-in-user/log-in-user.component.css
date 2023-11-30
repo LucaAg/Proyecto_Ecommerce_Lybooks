@@ -1,32 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Libre+Baskerville&display=swap');
+*
+{
+    font-family: 'Lora', serif;
+}
+
 .screen
 {
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: space-evenly;
+    justify-content:space-evenly;
     align-items: center;
     flex-direction: column;
+}
+
+.screen img
+{
+    width: 9.375rem;
 }
 
 .screen form
 {
-    width: 90%;
+    width: 40%;
     height: 80%;
-    border: 1px solid black;
     display: flex;
-    justify-content: space-evenly;
+    justify-content:space-evenly;
     align-items: center;
     flex-direction: column;
+    border: 0.188rem solid #D6AA67;
+    border-radius: 1.25rem;
+    background-color: rgb(245, 234, 219);
 }
 
-.pantalla form input
+.screen form h1
 {
-    width: 80%;
-    height: 30px;
+    font-size: 3.75rem;
+    font-weight: bold;
+    color: #D6AA67;
 }
 
-.screen form button
+.screen form h2
 {
-    width: 150px;
-    height: 30px;
+    font-size: 2.188rem;
+}
+
+.screen form label
+{
+    width: 55%;
+}
+
+.screen form small
+{
+    width: 55%;
+    font-style: italic;
+    color: red;
+}
+
+.screen form input
+{
+    width: 55%;
+    height: 1.875rem;
+    background-color: white;
+    border-radius: 1.25rem;
+    text-indent: 0.625rem;
+}
+
+.screen form a,.screen form span
+{
+    width: 55%;
+}
+
+.screen form .legality
+{
+    width: 55%;
+    text-align: center;
+    font-size: 1rem;
+}
+
+
+.screen form hr
+{
+    border-color: #a7a5a5;
+    width: 65%;
+}
+
+
+.screen form  button
+{
+    width: 30%;
+    height: 6%;
+    border-radius: 1rem;
+    background-color: #1F2B2D;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.screen form  button:hover
+{
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transform: scale(1.05);
+}
+
+.screen form  button:active
+{
+    transform: scale(0.95);
+}
+
+.screen form .legality
+{
+    width: 55%;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.popUp
+{
+  position: absolute;
+  background-color: #1F2B2D;
+  align-content: center;
+  text-align: center;
+  border: 0.288rem solid black;
+  border-radius: 0.625rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height: 45%;
+  width: 30%;
+  color: #D6AA67;
+  backdrop-filter: blur(0.625rem);
+}
+
+.popUp img
+{
+    width: 120px;
+}
+
+.popUp button
+{
+    width: 30%;
+    height: 8%;
+    border-radius: 1rem;
+    background-color: rgb(245, 234, 219);
+    color: black;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.popUp button:hover
+{
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transform: scale(1.05);
+}
+
+.popUp button:active
+{
+    transform: scale(0.95);
+}
+
+@media screen and (max-width: 890px)
+{
+    .screen form
+    {
+        width: 50%;
+    }
+
+    .screen form h1
+    {
+        font-size: 2.5rem;
+    }
+
+    .screen form h2
+    {
+        font-size: 1.7rem;
+    }
+
+    .screen form small
+    {
+        width: 60%;
+    }
+
+    .screen form label
+    {
+        width: 60%;
+    }
+
+    .screen form input
+    {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 576px)
+{
+    .screen form
+    {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 400px)
+{
+    .screen form
+    {
+        width: 65%;
+    }
+}
+
+
+/* SPINNER */
+.spinner-container
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(8, 8, 8, 0.2);
+    backdrop-filter: blur(3px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
 }
