@@ -1,8 +1,241 @@
 <app-navbar></app-navbar>
 <div class="screen">
-    <form action="https://www.google.com/search" method="get">
-        <input type="text" placeholder="Search your book">
-        <button type="submit"><img src="../../../assets/navbar/lupa.png" alt="Magnifying glass"></button>
-    </form>
+    <div class="filter">
+
+      <div class="separator">
+
+        <div class="input-box">
+            <i class="uil uil-search"></i>
+            <input type="text" placeholder="Search here..." />
+            <button class="button">Search</button>
+        </div>
+
+        <div class="filters-container">
+
+              <div class="genre-container">
+                  <label for="">Select your book genre</label>
+                  <select name="select-genre" id="">
+                      <option value="" selected>Any</option>
+                      <option value="fiction">Fiction</option>
+                      <option value="non-fiction">Non-fiction</option>
+                      <option value="drama">Drama</option>
+                      <option value="science Fiction">Science Fiction</option>
+                      <option value="fantasy">Fantasy</option>
+                      <option value="mystery">Mystery</option>
+                      <option value="romance">Romance</option>
+                      <option value="horror">Horror</option>
+                      <option value="adventure">Adventure</option>
+                      <option value="children">Children's</option>
+                      <option value="essay">Essay</option>
+                      <option value="short-story">Short Story</option>
+                  </select>
+              </div>
+      
+              <div class="book-condition">
+                  <label for="" class="lblCondition">Book condition</label>
+                  <label class="state">
+                      <input name="state" type="radio" checked>
+                      Any
+                  </label>
+                  <label class="state">
+                      <input name="state" type="radio">
+                      New
+                  </label>
+                  <label class="state">
+                      <input name="state" type="radio">
+                      Used
+                  </label>
+              </div>
+        </div>
+
+      </div>
+
+      <div class="btnFilter-container">
+        <label for="">Order by</label>
+        <div class="button-order">
+          <button class="btnFilter">&darr; Fecha</button>
+          <button class="btnFilter">&uarr; Precio </button>
+          <button class="btnFilter">&uarr; Amor </button>
+        </div>
+      </div>
+
+    </div>
+    <div class="books-container">
+        <div class="publications">
+              <div class="card">
+                <img src="../../../assets/Welcome/4.jpg" alt="Portada del libro">
+                <div class="card-content">
+                  <div class="title">Título del Libro</div>
+                  <div class="genre">Género: Ficción</div>
+                  <div class="genre">Estado: Usado</div>
+                  <div class="price">$19.99</div>
+                  <button class="add-to-cart">Ver producto</button>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="../../../assets/Welcome/3.jpg" alt="Portada del libro">
+                <div class="card-content">
+                  <div class="title">Título del Libro</div>
+                  <div class="genre">Género: Ficción</div>
+                  <div class="genre">Estado: Usado</div>
+                  <div class="price">$19.99</div>
+                  <button class="add-to-cart">Ver producto</button>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="../../../assets/Welcome/2.jpg" alt="Portada del libro">
+                <div class="card-content">
+                  <div class="title">Título del Libro</div>
+                  <div class="genre">Género: Ficción</div>
+                  <div class="genre">Estado: Usado</div>
+                  <div class="price">$19.99</div>
+                  <button class="add-to-cart">Ver producto</button>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="../../../assets/Welcome/1.jpg" alt="Portada del libro">
+                <div class="card-content">
+                  <div class="title">Título del Libro</div>
+                  <div class="genre">Género: Ficción</div>
+                  <div class="genre">Estado: Usado</div>
+                  <div class="price">$19.99</div>
+                  <button class="add-to-cart">Ver producto</button>
+                </div>
+              </div>
+              <div class="card">
+                <img src="../../../assets/Welcome/11.jpg" alt="Portada del libro">
+                <div class="card-content">
+                  <div class="title">Título del Libro</div>
+                  <div class="genre">Género: Ficción</div>
+                  <div class="genre">Estado: Usado</div>
+                  <div class="price">$19.99</div>
+                  <button class="add-to-cart">Ver producto</button>
+                </div>
+              </div>
+
+                     
+        </div>
+        
+        <label for="">Maybe you are interest in...</label>
+        <div class="carrousel-container">
+          <button aria-label="Last" class="last-carrousel">
+            «
+          </button>
+
+          <div class="carrousel-list">
+            <div class="carrousel-element">
+              <div class="card">
+                <img src="../../../assets/Welcome/7.jpg" alt="Portada del libro">
+                <div class="card-content">
+                  <div class="title">Título del Libro</div>
+                  <div class="genre">Género: Ficción</div>
+                  <div class="genre">Estado: Usado</div>
+                  <div class="price">$19.99</div>
+                  <button class="add-to-cart">Ver producto</button>
+                </div>
+              </div>
+            </div>
+            <div class="carrousel-element">
+              <div class="card">
+                <img src="../../../assets/Welcome/8.jpg" alt="Portada del libro">
+                <div class="card-content">
+                  <div class="title">Título del Libro</div>
+                  <div class="genre">Género: Ficción</div>
+                  <div class="genre">Estado: Usado</div>
+                  <div class="price">$19.99</div>
+                  <button class="add-to-cart">Ver producto</button>
+                </div>
+              </div>
+            </div>
+            <div class="carrousel-element">
+              <div class="card">
+                <img src="../../../assets/Welcome/9.jpg" alt="Portada del libro">
+                <div class="card-content">
+                  <div class="title">Título del Libro</div>
+                  <div class="genre">Género: Ficción</div>
+                  <div class="genre">Estado: Usado</div>
+                  <div class="price">$19.99</div>
+                  <button class="add-to-cart">Ver producto</button>
+                </div>
+              </div>
+            </div>
+            <div class="carrousel-element">
+              <div class="card">
+                <img src="../../../assets/Welcome/13.jpg" alt="Portada del libro">
+                <div class="card-content">
+                  <div class="title">Título del Libro</div>
+                  <div class="genre">Género: Ficción</div>
+                  <div class="genre">Estado: Usado</div>
+                  <div class="price">$19.99</div>
+                  <button class="add-to-cart">Ver producto</button>
+                </div>
+              </div>
+            </div>
+            <div class="carrousel-element">
+              <div class="card">
+                <img src="../../../assets/Welcome/11.jpg" alt="Portada del libro">
+                <div class="card-content">
+                  <div class="title">Título del Libro</div>
+                  <div class="genre">Género: Ficción</div>
+                  <div class="genre">Estado: Usado</div>
+                  <div class="price">$19.99</div>
+                  <button class="add-to-cart">Ver producto</button>
+                </div>
+              </div>
+            </div>
+            <div class="carrousel-element">
+              <div class="card">
+                <img src="../../../assets/Welcome/12.jpg" alt="Portada del libro">
+                <div class="card-content">
+                  <div class="title">Título del Libro</div>
+                  <div class="genre">Género: Ficción</div>
+                  <div class="genre">Estado: Usado</div>
+                  <div class="price">$19.99</div>
+                  <button class="add-to-cart">Ver producto</button>
+                </div>
+              </div>
+            </div>
+            <div class="carrousel-element">
+              <div class="card">
+                <img src="../../../assets/Welcome/2.jpg" alt="Portada del libro">
+                <div class="card-content">
+                  <div class="title">Título del Libro</div>
+                  <div class="genre">Género: Ficción</div>
+                  <div class="genre">Estado: Usado</div>
+                  <div class="price">$19.99</div>
+                  <button class="add-to-cart">Ver producto</button>
+                </div>
+              </div>
+            </div>
+            <div class="carrousel-element">
+              <div class="card">
+                <img src="../../../assets/Welcome/1.jpg" alt="Portada del libro">
+                <div class="card-content">
+                  <div class="title">Título del Libro</div>
+                  <div class="genre">Género: Ficción</div>
+                  <div class="genre">Estado: Usado</div>
+                  <div class="price">$19.99</div>
+                  <button class="add-to-cart">Ver producto</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+          <button aria-label="Next" class="next-carrousel">
+            »
+          </button>
+        </div>
+        <div role="tablist" class="carrousel-indicator">
+      </div>
+      
+       
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 Lybooks, inc.</p><br><br>
+    </div>
 </div>
 
