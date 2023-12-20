@@ -1,6 +1,7 @@
 <div class="screen">
     <form [formGroup]="formUser" (ngSubmit)="signUpUser()">
         <h1>Lybooks</h1>
+        <h2>Create account</h2>
         <label for="">Name</label>
         <input formControlName="name" type="text" placeholder="Enter your name(s)">
         <small
@@ -81,11 +82,20 @@
             formUser.controls['image'].touched ">
             *Profile image is required
         </small>
+        <div class="captcha">
+            <re-captcha formControlName="recaptchaReactive" siteKey="6LfaOyYpAAAAAKicaFBUpsRvf7bXcxohQyg_fZo8"></re-captcha>`
+        </div>
+        <small
+            *ngIf="formUser.controls['recaptchaReactive'].errors?.['required'] &&
+            formUser.controls['recaptchaReactive'].touched ">
+            *Captcha is required
+        </small>
+      
         <hr>
         <div class="legality">
             <p>By creating an account, you agree to the Lybooks <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit">Register</button><br>
     </form>
     <div class="copyright">
         <p>&copy; 2023 Lybooks, inc.</p>

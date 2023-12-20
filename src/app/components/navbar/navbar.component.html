@@ -3,19 +3,42 @@
         <a href="">
             <img src="../../../assets/Logo-removebg.png" alt="Logo Lybooks">
         </a>
-        <ul>
+        <input type="checkbox" name="" id="check" (click)="toggleMenu()" [(ngModel)]="checkValue">
+        <label class="ri-menu-line checkbtn" for="check"></label>
+        <ul class="navbar" id="navUl">
             <li>
-                <a href="#">Home</a>
+                <a href="#" class="active">Home</a>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <a href="#">Save</a>
+            </li>
+            <li class="separator">
+                <a href="#">Help</a>
+            </li>
+            <li>
+                <a href="">
+                    <img id="imgToggle" src="../../../assets/navbar/usuario.png" alt="User">
+                    <span class="hide">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img id="imgToggle" src="../../../assets/navbar/correo-electronico.png" alt="Notification">
+                    <span class="hide">Notification</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img id="imgToggle" src="../../../assets/navbar/carrito-de-compras.png" alt="My cart">
+                    <span class="hide" id="spanToggle">My cart</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img id="imgToggle" src="../../../assets/navbar/cerrar-sesion.png" alt="Log out">
+                    <span class="hide" id="spanToggle">Log out</span>
+                </a>
             </li>
         </ul>
-        <div class="container">
-            <button><img src="../../../assets/navbar/notificacion.png" alt="Notification"></button>
-            <button><img src="../../../assets/navbar/usuario.png" alt="User"></button>
-            <button><img src="../../../assets/navbar/correo-electronico.png" alt="E-mail"></button>
-            <button><img src="../../../assets/navbar/carrito-de-compras.png" alt="E-mail"></button>
-        </div>
     </nav>
 </div>

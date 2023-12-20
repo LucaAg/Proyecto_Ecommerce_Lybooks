@@ -4,58 +4,568 @@
     font-family: 'Lora', serif;
 }
 
-
 .screen
 {
     width: 100%;
-    height: 100vh;
+    height: 210vh;
     display: flex;
-    justify-content:space-evenly;
-    align-items: center;
+    justify-content:space-between;
+    align-items: start;
     flex-direction: column;
+    background-color: rgb(245, 234, 219);
 }
 
-.screen form
+.filter 
+{
+  display: flex;
+  flex-direction: row;
+  width: 45%;
+  margin: 10px 0 0 35px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+
+.filter  .separator
+{
+  width: 60%;
+}
+
+.filter  .separator .input-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+
+.filter  .separator .input-box input {
+  width: 62%;
+  padding: 10px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.filter  .separator .input-box .button {
+  padding: 10px;
+  background-color: #D6AA67;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.filter  .separator .filters-container
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+.filter  .separator .filters-container .genre-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+
+.filter  .separator .filters-container .genre-container select {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.filter  .separator .filters-container .book-condition {
+  margin-top: 20px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.filter  .separator .filters-container .book-condition .state {
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.filter .btnFilter-container {
+  display: flex;
+  width: 40%;
+  height: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.filter .btnFilter-container label
+{
+  text-align : center;
+}
+
+.filter .btnFilter-container .btnFilter {
+  
+  width: 50%;
+  padding: 10px;
+  background-color: #D6AA67;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  
+  cursor: pointer;
+}
+
+.screen .books-container
 {
     width: 100%;
-    height: 6.5vh;
-    max-width: 450px;
-    background: rgba(24, 18, 18, 0.2);
+    height: 200vh;
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
-    border-radius: 60px;
-    padding: 10px 20px;
+    flex-direction: column;
+    margin-top: 15px;
 }
 
-.screen form input
+.screen .books-container .publications
 {
-    background: transparent;
-    flex: 1;
-    border: 0;
-    outline: none;
-    padding: 24px 20px;
-    font-size: 20px;
-    color: #ffffff;
+    width: 95%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #fcfcfc;
+    box-shadow: 1px 1px 2px black;
+    border-radius: 20px;
+    background-color: #D6AA67;
 }
 
-::placeholder
+
+.card 
 {
-    color: #fcfcfd;
+  width: 12.5rem;
+  height: 21.25rem;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  transition: box-shadow 0.3s;
 }
 
-
-.screen form button
+.card:hover
 {
-    border: 0;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    background: #D6AA67;
-    cursor: pointer;
-    backdrop-filter: blur(4px) saturate(180%);
+  box-shadow: 0 0 1.563rem rgba(0, 0, 0, 0.6);
 }
 
-.screen form button img
-{
-    width: 20px;
+.card img {
+  width: 100%;
+  height: 9.375rem;
+  object-fit: contain;
 }
+
+.card-content {
+  padding: 16px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+
+.genre {
+  font-size: 0.75rem;
+  color: #777;
+}
+
+.price {
+  font-size: 1.625rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.add-to-cart {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 0 0 8px 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1rem !important;
+  color: white !important;
+}
+
+.add-to-cart:hover {
+  background-color: #2980b9;
+}
+
+.screen .books-container label
+{
+  font-size: 1.563rem;
+  margin-top: 20px;
+}
+
+.screen .copyright
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.625rem;
+}
+
+.button-order
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* CARROUSEL */
+.carrousel-container
+{
+  position: relative;
+  width: 90%;
+ 
+}
+
+.carrousel-container button
+{
+  font-size: 1.875rem;
+  color: #000000;
+}
+
+.last-carrousel,
+.next-carrousel
+{
+  position: absolute;
+  display: block;
+  width: 1.875rem;
+  height: 1.875rem;
+  border: none;
+  top: calc(50% - 2.188rem);
+  cursor: pointer;
+  line-height: 1.875rem;
+  text-align: center;
+  background: none;
+  color: #fff;
+  opacity: 50%;
+}
+
+.last-carrousel:hover,
+.next-carrousel:hover
+{
+  opacity: 100%;
+}
+
+.last-carrousel
+{
+  left: -1.875rem;
+}
+
+.next-carrousel
+{
+  right: -1.875rem;
+}
+
+.carrousel-list
+{
+  overflow: hidden;
+  
+}
+
+.carrousel-element
+{
+  display: flex !important;
+  text-align: center;
+  width: 33%;
+  height: 500vh;
+  
+}
+
+.carrousel-element img
+{
+  width: 9.375rem;
+}
+
+.carrousel-indicator .glider-dot
+{
+  display: block ;
+  width: 1.875rem;
+  height: 4px;
+  background: #fff !important;
+  opacity: .2;
+  border-radius: 0;
+}
+
+@media screen and (max-width: 890px)
+{
+  .filter
+  {
+    width: 50%;
+  }
+  .filter .btnFilter-container .btnFilter
+  {
+    font-size: 0.6rem;
+  }
+
+    .card {
+        width: 200px;
+        height: 260px;
+      }
+    
+      .card img {
+        width: 100%;
+        height: 6.25rem;
+      }
+    
+      .card-content {
+        padding: 13px;
+      }
+    
+      .title {
+        font-size: 1.125rem;
+        margin-bottom: 4px;
+      }
+    
+      .genre {
+        font-size: 0.875rem;
+      }
+    
+      .price {
+        font-size: 1.313rem;
+      }
+    
+      .add-to-cart {
+        display: block;
+        width: 100%;
+        padding: 0.625rem;
+        font-size: 1rem;
+      }
+}
+
+@media screen and (max-width: 600px)
+{
+  .screen .filter 
+  {
+    flex-direction: column;
+    padding: 30px;
+    font-size: 13px;
+    width: 80%;
+    margin: 15px auto
+  }
+
+  .screen .filter  .separator
+  {
+    width: 100%;
+  }
+
+  .filter  .separator .input-box
+  {
+    margin: 0;
+    
+  }
+
+  .filter  .separator .input-box input
+  {
+    width: 70%;
+    margin: 0;
+    margin-left: 10px;
+  }
+
+  .filter  .separator .input-box .button 
+  {
+    width: 3.8rem;
+    margin-left: 5px;
+  }
+
+  .filters-container
+  {
+    justify-content: space-evenly;
+  }
+
+  .screen .filter .btnFilter-container
+  {
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .screen .filter .btnFilter-container .button-order
+  {
+    flex-direction: row;
+  }
+
+  .screen .filter .btnFilter-container .btnFilter
+  {
+      width: 6rem;
+      font-size: 0.8rem;
+      padding: 5px;
+      height: 2rem;
+  }
+
+  .filter  .separator .filters-container .book-condition
+  {
+    margin-top: 7px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+ 
+  .input-box {
+    width: 100%;
+    height: 66px;
+    margin: 0 8px;
+  }
+  .input-box i {
+    left: 12px;
+    font-size: 15px;
+  }
+  .input-box input {
+    padding: 0 42px 0 25px;
+  }
+  .input-box .button {
+    right: 12px;
+    font-size: 14px;
+    padding: 8px 18px;
+  }
+}
+
+@media screen and (max-width: 465px)
+{
+ 
+  .screen .filter .btnFilter-container .btnFilter
+  {
+    width: 4rem;
+  }
+  
+  .filter  .separator .input-box input
+  {
+    margin: 0;
+  }
+
+  .card {
+      width: 150px;
+      height: 250px;
+    }
+  
+    .card img {
+      width: 100%;
+      height: 100px;
+    }
+  
+    .card-content {
+      padding: 10px;
+    }
+  
+    .title {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+  
+  
+    .genre {
+      font-size: 12px;
+    }
+  
+    .price {
+      font-size: 19px;
+    }
+  
+    .add-to-cart {
+      display: block;
+      width: 100%;
+      padding: 6px;
+      font-size: 14px;
+    }
+
+    .screen .filter
+    {
+      display:flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: column;
+      height: 20%;
+    }
+    
+    .screen .filter .genre-container
+    {
+        width: 90%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .screen .filter .genre-container select 
+    {
+        padding: 5px 1.563rem 5px 5px;
+        font-size: 1rem;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        background-color: #f8f8f8;
+    }
+
+    .screen .filter .genre-container select option 
+    {
+        background-color: #fff;
+        color: #000000;
+    }
+      
+
+    .screen .filter .genre-container select:focus 
+    {
+        border-color: #D6AA67;
+        box-shadow: 0 0 5px rgba(214, 170, 103, 0.6);
+    }
+
+    .carrousel-container
+    {
+      width: 85%;
+    }
+    
+        
+    .screen .books-container label
+    {
+      font-size: 1.2rem;
+      margin-top: 20px;
+    }
+}
+

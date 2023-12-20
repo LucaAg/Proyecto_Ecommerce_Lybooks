@@ -33,6 +33,7 @@ export class UserRegisterComponent {
       password: ['', [Validators.required,Validators.pattern(this.passwordPattern)]],
       rePassword: ['', [Validators.required,Validators.pattern(this.passwordPattern)]],
       image: ['', [Validators.required]],
+      recaptchaReactive: ['', [Validators.required]],
     });
 
   }

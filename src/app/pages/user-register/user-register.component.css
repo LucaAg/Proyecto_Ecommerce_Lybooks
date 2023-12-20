@@ -17,7 +17,7 @@
 
 .screen form
 {
-    width: 45%;
+    width: 55%;
     height: 90%;
     display: flex;
     justify-content:space-evenly;
@@ -28,11 +28,17 @@
     background-color: rgb(245, 234, 219);
 }
 
+
 .screen form h1
 {
     font-size: 3.75rem;
     font-weight: bold;
     color: #D6AA67;
+}
+
+.screen form h2
+{
+    font-size: 1.788rem;
 }
 
 .screen form label
@@ -118,6 +124,16 @@
     height: 2rem;
     display: inline-block;
 }
+
+.screen form .captcha
+{
+    width: 100%;
+    transform:scale(1);
+    transform-origin:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
   
 .screen form .file-container::before
 {
@@ -151,12 +167,18 @@
 {
     .screen form
     {
-        width: 65%;
+        width: 70%;
     }
 
     .screen form input:not([type="file"]) 
     {
         width: 60%;
+    }
+
+    .screen form .captcha
+    {
+        transform:scale(0.85);
+        transform-origin:center center;
     }
 
     .screen form label
@@ -169,18 +191,25 @@
         width: 60%;
     }
 
+
 }
 
 @media screen and (max-width: 576px)
 {
     .screen form
     {
-        width: 65%;
+        width: 75%;
     }
 
     .screen form input:not([type="file"]) 
     {
         width: 65%;
+    }
+
+    .screen form .captcha
+    {
+        transform:scale(0.75);
+        transform-origin: center center;
     }
 
     .screen form label
@@ -199,7 +228,7 @@
 {
     .screen form
     {
-        width: 70%;
+        width: 80%;
     }
 
     .screen form h1
@@ -210,6 +239,12 @@
     .screen form input:not([type="file"]) 
     {
         width: 70%;
+    }
+
+    .screen form .captcha
+    {
+        transform:scale(0.7);
+        transform-origin:center center;
     }
 
     .screen form label
